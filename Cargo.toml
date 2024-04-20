@@ -1,0 +1,15 @@
+[package]
+name = "pambeaconrs"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "pambeaconrs"
+# "cdylib" will allow us to compile into .so
+crate-type = ["cdylib"]
+
+[dependencies]
+pam-bindings = "0.1.1"
+btleplug = { version = "0.10", features = ["serde"] }
+time = "0.3.34"
+tokio = "1.36.0"
