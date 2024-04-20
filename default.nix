@@ -28,7 +28,7 @@ rustPlatform.buildRustPackage rec {
 
   src = gitignoreSource ./.;
 
-  buildInputs = [
+  buildInputs = with pkgs; [
     clang
     llvmPackages.bintools
     rustup
@@ -37,10 +37,10 @@ rustPlatform.buildRustPackage rec {
     dbus
     pkg-config
   ];
-  nativeBuildInputs = [ pkgconfig ];
-  cargoSha256 = "sha256-0hfmV4mbr3l86m0X7EMYTOu/b+BjueVEbbyQz0KgOFY=";
+  nativeBuildInputs = with pkgs; [ pkg-config ];
+  cargoSha256 = "sha256-kd+wUdHGSI6b8SqO9p3UvMwaHfoSfB1Yft++UejpnUE=";
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     homepage = "";
     description = "Simple pam module to search for bluetooth beacons";
     license = licenses.mit;

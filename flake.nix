@@ -12,10 +12,11 @@
     pkgs = nixpkgs.legacyPackages.${system};
     gitignoreSrc = pkgs.callPackage inputs.gitignore { };
   in rec {
-    packages.pam-beacon-rs = pkgs.callPackage ./default.nix { inherit gitignoreSrc; };
+    packages = rec {
+        pam-beacon-rs = pkgs.callPackage ./default.nix { inherit gitignoreSrc; };
+        default = pam-beacon-rs;
+    };
 
     legacyPackages = packages;
-
-    defaultPackage = packages.pam-beacon-rs;
   });
 }
