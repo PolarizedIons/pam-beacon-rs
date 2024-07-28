@@ -79,7 +79,7 @@ async fn scan_for_device(expected_values: Vec<&str>) -> Result<bool, btleplug::E
     // TODO
     // instead of waiting, you can use central.events() to get a stream which will
     // notify you of new devices, for an example of that see examples/event_driven_discovery.rs
-    sleep(Duration::from_secs(2));
+    sleep(Duration::from_secs(1));
 
     let found_peripherals = match central.peripherals().await {
         Ok(found) => found,
